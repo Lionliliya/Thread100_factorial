@@ -1,0 +1,32 @@
+package oop6;
+
+public class Threads100 implements Runnable {
+	private int numb;
+	
+	public Threads100(int numb) {
+		super();
+		this.numb = numb;
+	}
+	long fact=1;
+	
+	@Override
+	public void run() {
+		/**if (numb==1) {
+			System.out.println("Thread # "+numb+" factorial = 1");
+		} else { **/
+		for (int i=1;i<=this.numb; i++){
+			fact=fact*i;
+		}
+		
+		System.out.println("Thread # "+numb+" factorial of "+numb+"! = "+String.valueOf(fact));
+		
+	}
+	
+	public static void main(String [] args) {
+		for (int i = 1; i<=100; i++) {
+			
+		(new Thread(new Threads100(i))).start();
+	}
+	}
+	
+}
